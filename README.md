@@ -43,10 +43,11 @@ Later on I would find out that I would need to obtain or purchase the following 
 
 - Connect power supply adapter into the Matrix Bonnet and wall.
 ### Photos of the Soldering Process
-![IMG_7571](https://github.com/d-terrell/Spotipi/assets/168385418/c3a60790-a5da-4bc6-bcca-ee828fc2c5a3)
 ![IMG_7531](https://github.com/d-terrell/Spotipi/assets/168385418/6bb4fc82-0634-4281-948f-2de43a3ab76b)
+![IMG_7571](https://github.com/d-terrell/Spotipi/assets/168385418/c3a60790-a5da-4bc6-bcca-ee828fc2c5a3)
 
 ### Photos of Fully Assembled Hardware
+
 ## Raspberry Pi Zero Hardware Assembly
 
 - Attach standard HDMI cable from monitor to mini HDMI convertor then attach the mini HDMI to the mini HDMI output on the Pi Zero. 
