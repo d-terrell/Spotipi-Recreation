@@ -1,9 +1,10 @@
 
+
 # Spotipi Recreation
 
-Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It displays the album cover of the music playing on Spotify onto a 32x32 LED matrix. This project is intded for myself for learning purposes.I selected this project to gain a broad knowledge of both software and hardware. Although it has been challenging, it has been a great learning experience.
+Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It displays the album cover of the music playing on Spotify onto a 32x32 LED matrix. This project is intended for myself for learning purposes. I selected this project to gain a broad knowledge of software and hardware. Although it has been challenging, it has been a great learning experience.
 ## Hardware
-To begin the project I started out buying the hardware Ryan Ward had linked in his written out tutorial of Spotipi:
+To begin the project, I started out buying the hardware Ryan Ward had linked in his written tutorial of Spotipi:
 
 - [32x32 RGB Led Matrix Panel](https://www.adafruit.com/product/1484)
 - [RGB Matrix Bonnet](https://www.adafruit.com/product/3211)
@@ -12,7 +13,7 @@ To begin the project I started out buying the hardware Ryan Ward had linked in h
 - [Micro SD Card Pack](https://www.amazon.com/PNY-Elite-microSDHC-Memory-3-Pack/dp/B07YXJM282/ref=sr_1_18?crid=3GICE52988A25&dchild=1&keywords=micro+sd+card&qid=1609606176&s=electronics&sprefix=micro+%2Celectronics%2C201&sr=1-18)
 
 
-Later on I would find out that I would need to obtain or purchase the following hardware/materials:
+Later on, I would find out that I would need to obtain or purchase the following hardware/materials:
 
 - Soldering Iron
 - Rosin Core - Alloy 60SN 40PB
@@ -35,13 +36,13 @@ Later on I would find out that I would need to obtain or purchase the following 
 
 - Attach Raspberry Pi Zero and RGB Matrix Bonnet together via GPIO pins.
 
-- Attach power cables from LED Pannel power source to Matrix Bonnet and tightened power cables with a screwdriver.
+- Attach power cables from the LED Panel power source to the Matrix Bonnet and tighten power cables with a screwdriver.
   - Red to positive.
   - Black to negative. 
 
-- Attach ribbion cable from first end of Matrix Bonnet on to the LED Pannel.
+- Attach ribbon cable from the first end of Matrix Bonnet onto the LED Panel.
 
-- Connect power supply adapter into the Matrix Bonnet and wall.
+- Connect the power supply adapter to the Matrix Bonnet and wall.
 ### Photos of the Soldering Process
 ![IMG_7531](https://github.com/d-terrell/Spotipi/assets/168385418/6bb4fc82-0634-4281-948f-2de43a3ab76b)
 ![IMG_7571](https://github.com/d-terrell/Spotipi/assets/168385418/c3a60790-a5da-4bc6-bcca-ee828fc2c5a3)
@@ -50,11 +51,11 @@ Later on I would find out that I would need to obtain or purchase the following 
 
 ## Raspberry Pi Zero Hardware Assembly
 
-- Attach standard HDMI cable from monitor to mini HDMI convertor then attach the mini HDMI to the mini HDMI output on the Pi Zero. 
+- Attach the standard HDMI cable from the monitor to the mini HDMI converter, then attach the mini HDMI to the mini HDMI output on the Pi Zero. 
 
-- Attach standard USB cable from keyboard to USB Female to Micro USB Male Adapter. Then plug the Micro USB to the Micro USB Data Port on the Pi Zero. 
+- Attach the standard USB cable from the keyboard to the USB Female to the Micro USB Male Adapter. Now plug the Micro USB into the Micro USB Data Port on the Pi Zero. 
 
-- Attach 2.5A Power Supply from wall to Micro USB 5 V Power input on the Pi Zero.
+- Attach the 2.5A Power Supply from the wall to the Micro USB 5 V Power input on the Pi Zero.
 
 ## References
 
@@ -70,7 +71,7 @@ Later on I would find out that I would need to obtain or purchase the following 
 
 - [How to Download & Install Git on Windows 11](https://youtu.be/JgOs70Y7jew?si=-cGVdC8P_ayUbq1C)
 
-
 - [How to install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 - [Windows 11: How To Enable Virtualization (VT-x) in Bios](https://youtu.be/3ZBwFcaed5w?si=CYzdn89738iW8t1V)
+
