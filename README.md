@@ -122,13 +122,21 @@ generate-token.sh: line 21: $'echo\r': command not found
 Filename: .cache
 
 ```
-
+- Error Solution:
+  
 - Configured the PATH variable to include the necessary paths for Git and Python, allowing easy access from the command prompt:
 ```
 setx PATH "%PATH%;C:\Python3.12.3\Scripts"
 
 setx PATH "%PATH%;C:\Program Files\Git\bin"
-```
+``` 
+-  Multiple installations of the Bash executable were installed which confused the system.
+-  Since I'm using Git Bash, I need to use the Bash executable from the Git installation directory
+
+-  Ran bash script using the full path to the Git Bash executable:
+- ```
+  C:\Program Files\Git\bin\bash.exe" generate-token.sh
+  ```
 ## Spotify Developer Application
 
 The Spotify Developer Application is required to link your Spotify account to the Raspberry Pi, enabling it to display the currently playing music from your Spotify account.
