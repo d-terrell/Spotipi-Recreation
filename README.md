@@ -318,7 +318,8 @@ Within the web interface, you can perform the following actions:
 
 - Turn the display on or off.
 - Adjust the brightness of the display.
-- Adjust the size of the display if you are using a 64x64 matrix.
+- Adjust the size of the display.
+- Adjust the refresh rate of the display in hertz (Hz).
 
 ![Screenshot (42)](https://github.com/d-terrell/Spotipi/assets/168385418/31182fbd-1207-4311-8447-e4797539954d)
 
