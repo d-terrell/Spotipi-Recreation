@@ -125,7 +125,7 @@ Filename: .cache
 
 - Configured the PATH variable to include the necessary paths for Git and Python, allowing easy access from the command prompt:
 ```
-setx PATH "%PATH%;C:\path\to\git\bin;C:\path\to\python;C:\path\to\python\Scripts"
+setx PATH "%PATH%;C:\Python3.12.3\Scripts"
 
 setx PATH "%PATH%;C:\Program Files\Git\bin"
 ```
