@@ -234,6 +234,7 @@ ssh donna@192.168.1.30
 ```
 
 - After entering the command, you will be prompted to enter the password for the Pi user. Note that when you type the password, it may not show characters on the screen. Trust that you have typed it correctly and press Enter. If successful, you will see the following message:
+
 ![Screenshot (34)](https://github.com/d-terrell/Spotipi/assets/168385418/8dabce8a-11b2-4f59-aab0-8c8af35c1a79)
 
 
