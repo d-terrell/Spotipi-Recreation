@@ -84,7 +84,7 @@ Music is a significant part of my creative process and daily routine, so selecti
 
 - Installed Python for programming.
 
-I kept getting the error:
+### I kept getting the error:
 
 ```
 C:\Users\donna\spotipi>bash generate-token.sh
