@@ -113,26 +113,144 @@ The Spotify Developer Application is required to link your Spotify account to th
 ![Screenshot (43)](https://github.com/d-terrell/Spotipi/assets/168385418/c864f733-1daa-4112-9cfc-8ec662933402)
 
 
+## Installing SpotiPi Software
+
+### Generate Spotify Authentication File
+(Note: This was completed on a Windows 11 laptop.)
+
+- Copied Ryan Ward's SpotiPi repository on cmd prompt.
+```
+git clone  https://github.com/ryanwa18/spotipi.git
+```
+-  Changed into the directory that the git clone created, SpotiPI
+```
+ cd spotipi
+```
+- Ran the generate token script and entered the prompted Spotify credentials: Client ID, Client Secrect, Redirect URI, Spotify Username. 
+```
+ bash generate-token.sh
+ ```
+
+The authentication token has been created in the form of a file named .cache
+
+ 
+--sc 29--
+
+ #### Difficulties:
+
+I kept getting the following error when trying to run the bash script, generate-token.sh :
+
+```
+C:\Users\donna\spotipi>bash generate-token.sh
+Installing spotipy library:
+generate-token.sh: line 2: pip: command not found
+generate-token.sh: line 3: $'\r': command not found
+Enter your Spotify Client ID:
+': not a valid identifier: read: `spotify_client_id
+generate-token.sh: line 7: $'\r': command not found
+Enter your Spotify Client Secret:
+': not a valid identifier: read: `spotify_client_secret
+generate-token.sh: line 11: $'\r': command not found
+Enter your Spotify Redirect URI:
+': not a valid identifier3: read: `spotify_redirect_uri
+generate-token.sh: line 15: $'\r': command not found
+Enter your spotify username:
+': not a valid identifier7: read: `spotify_username
+generate-token.sh: line 18: $'\r': command not found
+generate-token.sh: line 19: python: command not found
+generate-token.sh: line 20: $'\r': command not found
+generate-token.sh: line 21: $'echo\r': command not found
+###### Spotify Token Created ######
+Filename: .cache
+```
+Error Solution:
+- Python and Git were accessible in Windows PowerShell but not in the Command Prompt, so I needed to update their paths for the command prompt. 
+- Configured the PATH variable to include the necessary paths for Git and Python, allowing easy access from the command prompt:
+```
+setx PATH "%PATH%;C:\Python3.12.3\Scripts"
+
+setx PATH "%PATH%;C:\Program Files\Git\bin"
+``` 
+I was still recving the same error message:
+-  Multiple installations of the Bash executable were installed which confused the system.
+-  Since I'm using Git Bash, I need to use the Bash executable from the Git installation directory.
+
+-  Ran bash script using the full path to the Git Bash executable:
+ ```
+  C:\Program Files\Git\bin\bash.exe" generate-token.sh
+  ```
+## SSH to Raspberry Pi 
 
 
+Before copying the authentication file to the Raspberry Pi and running the installation script on the Pi, I needed to SSH to the PI.
+- SSH
 
-
-
-
-
-
-
-
-## What is SSH and VNC?
-- SSH 
     - Stands for Secure Shell.
-    - It's a protocol used for securely connecting to a remote computer or server over a network connection.
-    - In this case connecting from windows command prompt to a Raspberry Pi Zero over a network.  
+    - It's a protocol used for securely connecting to a remote     computer or server over a network connection.
+    - In this case connecting from windows command prompt to a Raspberry Pi Zero over a network.
 
-- VNC
-    - Stands for Virtual Network Computing.
-    - It's a technology that allows you to view and interact with the desktop of a remote computer over a network connection.
-    - You can see the remote desktop as if you were sitting in front of it, and you can control it using your mouse and keyboard.
+
+1. Type the following command on the PI Zero terminal to get the IP address of the network being used to link the Pi and computer:
+``` 
+hostname -I
+```
+- My IP address was: 192.168.1.30
+
+2. Enable SSH on Pi Zero:
+
+- Run the following command to open the Raspberry Pi Configuration tool:
+```
+sudo raspi-config
+```
+- In the configuration tool, navigate to Interfacing Options and then select SSH. Choose Enable and then select OK.
+
+-- insert photos here --
+
+- Exit the configuration tool and reboot your Raspberry Pi Zero to apply the changes:
+
+```
+sudo reboot
+```
+- After the reboot, SSH should be enabled. Verify this by running the following on the Pi's terminal:
+
+```
+systemctl status ssh
+```
+- If SSH is running, you should see that it is active:
+
+-- insert photo of ssh status
+
+3. Connect to Pi from Computer via SSH:
+
+- On the computer type in the cmd prompt:
+```
+ssh pi@your_pi_zero_ip
+```
+- In my case it was:
+
+```
+ssh donna@192.168.1.30
+```
+
+- After entering the command, you will be prompted to enter the password for the Pi user. Note that when you type the password, it may not show characters on the screen. Trust that you have typed it correctly and press Enter. If successful, you will see the following message.
+
+-- enter screen shot--
+
+
+### Difficulties:
+
+- I had to change my location from school to home because a firewall was blocking my SSH access to the Raspberry Pi.
+
+
+
+
+
+
+
+
+
+
+
 
 ## Raspberry Pi Zero Hardware Assembly
 
