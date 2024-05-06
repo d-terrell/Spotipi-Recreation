@@ -74,7 +74,7 @@ As the project progressed, I realized the need to acquire additional hardware an
 
 - Lack of stabilizers to hold the Matrix bonnet made soldering difficult because the bonnet was uneven.
 
-- Uneven bonnet caused solder to slide into pin holes, making it challenging to remove the solder.
+- Uneven bonnet caused the solder to slide into pinholes, making it challenging to remove the solder.
 
 - Failed to remove undesired solder in pin holes.
 
@@ -96,47 +96,6 @@ As the project progressed, I realized the need to acquire additional hardware an
 
 - Installed Python for programming.
 
-### I kept getting the error:
-
-```
-C:\Users\donna\spotipi>bash generate-token.sh
-Installing spotipy library:
-generate-token.sh: line 2: pip: command not found
-generate-token.sh: line 3: $'\r': command not found
-Enter your Spotify Client ID:
-': not a valid identifier: read: `spotify_client_id
-generate-token.sh: line 7: $'\r': command not found
-Enter your Spotify Client Secret:
-': not a valid identifier: read: `spotify_client_secret
-generate-token.sh: line 11: $'\r': command not found
-Enter your Spotify Redirect URI:
-': not a valid identifier3: read: `spotify_redirect_uri
-generate-token.sh: line 15: $'\r': command not found
-Enter your spotify username:
-': not a valid identifier7: read: `spotify_username
-generate-token.sh: line 18: $'\r': command not found
-generate-token.sh: line 19: python: command not found
-generate-token.sh: line 20: $'\r': command not found
-generate-token.sh: line 21: $'echo\r': command not found
-###### Spotify Token Created ######
-Filename: .cache
-
-```
-- Error Solution:
-  
-- Configured the PATH variable to include the necessary paths for Git and Python, allowing easy access from the command prompt:
-```
-setx PATH "%PATH%;C:\Python3.12.3\Scripts"
-
-setx PATH "%PATH%;C:\Program Files\Git\bin"
-``` 
--  Multiple installations of the Bash executable were installed which confused the system.
--  Since I'm using Git Bash, I need to use the Bash executable from the Git installation directory
-
--  Ran bash script using the full path to the Git Bash executable:
-- ```
-  C:\Program Files\Git\bin\bash.exe" generate-token.sh
-  ```
 ## Spotify Developer Application
 
 The Spotify Developer Application is required to link your Spotify account to the Raspberry Pi, enabling it to display the currently playing music from your Spotify account.
