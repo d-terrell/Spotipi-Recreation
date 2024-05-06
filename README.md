@@ -134,7 +134,8 @@ git clone  https://github.com/ryanwa18/spotipi.git
 The authentication token has been created in the form of a file named .cache
 
  
---sc 29--
+![Screenshot (29)](https://github.com/d-terrell/Spotipi/assets/168385418/cb144ddb-c1bb-4057-8863-cb1c9f19da2a)
+
 
  #### Difficulties:
 
@@ -179,7 +180,7 @@ I was still recving the same error message:
  ```
   C:\Program Files\Git\bin\bash.exe" generate-token.sh
   ```
-## SSH to Raspberry Pi 
+### SSH to Raspberry Pi 
 
 
 Before copying the authentication file to the Raspberry Pi and running the installation script on the Pi, I needed to SSH to the PI.
@@ -218,7 +219,7 @@ systemctl status ssh
 ```
 - If SSH is running, you should see that it is active:
 
--- insert photo of ssh status
+-- insert photo of ssh status --
 
 3. Connect to Pi from Computer via SSH:
 
@@ -233,11 +234,11 @@ ssh donna@192.168.1.30
 ```
 
 - After entering the command, you will be prompted to enter the password for the Pi user. Note that when you type the password, it may not show characters on the screen. Trust that you have typed it correctly and press Enter. If successful, you will see the following message.
+- 
+![Screenshot (34)](https://github.com/d-terrell/Spotipi/assets/168385418/8dabce8a-11b2-4f59-aab0-8c8af35c1a79)
 
--- enter screen shot--
 
-
-### Difficulties:
+#### Difficulties:
 
 - I had to change my location from school to home because a firewall was blocking my SSH access to the Raspberry Pi.
 
