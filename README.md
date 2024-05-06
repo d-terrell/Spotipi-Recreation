@@ -36,6 +36,18 @@ Music is a significant part of my creative process and daily routine, so selecti
  ### Photos of the Soldering Process
 ![IMG_7531](https://github.com/d-terrell/Spotipi/assets/168385418/6bb4fc82-0634-4281-948f-2de43a3ab76b)
 ![IMG_7571](https://github.com/d-terrell/Spotipi/assets/168385418/c3a60790-a5da-4bc6-bcca-ee828fc2c5a3)
+
+## Hardware Purchased:
+For the foundation of my project, I carefully selected the hardware recommended by Ryan Ward in his detailed tutorial for SpotiPi:
+
+- [32x32 RGB Led Matrix Panel](https://www.adafruit.com/product/1484)
+- [RGB Matrix Bonnet](https://www.adafruit.com/product/3211)
+- [Raspberry Pi Zero WH](https://www.adafruit.com/product/3708)
+- [Power Supply Adapter](https://www.amazon.com/gp/product/B01N4HYWAM/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
+- [Micro SD Card Pack](https://www.amazon.com/PNY-Elite-microSDHC-Memory-3-Pack/dp/B07YXJM282/ref=sr_1_18?crid=3GICE52988A25&dchild=1&keywords=micro+sd+card&qid=1609606176&s=electronics&sprefix=micro+%2Celectronics%2C201&sr=1-18)
+  
+As the project progressed, I realized the need to acquire additional hardware and materials, such as a soldering iron, rosin core - Alloy 60SN 40PB, 3mm flat head screwdriver, mini HDMI converter, standard HDMI cable, USB Female to Micro USB Male Adapter, standard USB cable, 2.5A Power Supply, jumper wires, monitor, and keyboard.
+
 ## Hardware Assembly
 - Soldered GPIO pins 4 and 18 together on the Matrix Bonnet via tinned jumper wire.
 
@@ -154,35 +166,6 @@ The Spotify Developer Application is required to link your Spotify account to th
     - Stands for Virtual Network Computing.
     - It's a technology that allows you to view and interact with the desktop of a remote computer over a network connection.
     - You can see the remote desktop as if you were sitting in front of it, and you can control it using your mouse and keyboard.
-
-
-
-
-## Hardware
-To begin the project, I started out buying the hardware Ryan Ward had linked in his written tutorial of Spotipi:
-
-- [32x32 RGB Led Matrix Panel](https://www.adafruit.com/product/1484)
-- [RGB Matrix Bonnet](https://www.adafruit.com/product/3211)
-- [Raspberry Pi Zero WH](https://www.adafruit.com/product/3708)
-- [Power Supply Adapter](https://www.amazon.com/gp/product/B01N4HYWAM/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
-- [Micro SD Card Pack](https://www.amazon.com/PNY-Elite-microSDHC-Memory-3-Pack/dp/B07YXJM282/ref=sr_1_18?crid=3GICE52988A25&dchild=1&keywords=micro+sd+card&qid=1609606176&s=electronics&sprefix=micro+%2Celectronics%2C201&sr=1-18)
-
-
-Later on, I would find out that I would need to obtain or purchase the following hardware/materials:
-
-- Soldering Iron
-- Rosin Core - Alloy 60SN 40PB
-- 3mm Flat Head Screwdriver
-- Mini HDMI convertor
-- Standard HDMI cable
-- USB Female to Micro USB Male Adapter
-- Standard USB cable 
-- 2.5A Power Supply
-- Jumper Wires
-- Monitor
-- Keyboard
-
-
 
 ## Raspberry Pi Zero Hardware Assembly
 
