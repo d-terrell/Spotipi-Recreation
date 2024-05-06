@@ -48,12 +48,20 @@ For the main components, I selected the hardware recommended by Ryan Ward in his
   
 As the project progressed, I realized the need to acquire additional hardware and materials, such as a soldering iron, rosin core - Alloy 60SN 40PB, 3mm flat head screwdriver, mini HDMI converter, standard HDMI cable, USB Female to Micro USB Male Adapter, standard USB cable, 2.5A Power Supply, jumper wires, monitor, and keyboard.
 
+## Raspberry Pi Zero Hardware Assembly
+
+- Attach the standard HDMI cable from the monitor to the mini HDMI converter, then attach the mini HDMI to the mini HDMI output on the Pi Zero. 
+
+- Attach the standard USB cable from the keyboard to the USB Female to the Micro USB Male Adapter. Now plug the Micro USB into the Micro USB Data Port on the Pi Zero. 
+
+- Attach the 2.5A Power Supply from the wall to the Micro USB 5 V Power input on the Pi Zero.
+  
 ## Hardware Assembly
 - Soldered GPIO pins 4 and 18 together on the Matrix Bonnet via tinned jumper wire.
 
 - Soldered backside of GPIO pins 4 and 8 on Matrix Bonnet.
 
-- Attached Raspberry Pi Zero and RGB Matrix Bonnet together via GPIO pins
+- Attached Raspberry Pi Zero and RGB Matrix Bonnet via GPIO pins
 
 - Attached power cables from the LED Panel power source to the Matrix Bonnet and tighten power cables with a screwdriver.
     - Red to positive.
@@ -66,9 +74,9 @@ As the project progressed, I realized the need to acquire additional hardware an
 
 - Didn't have the right adapters for Raspberry Pi Zero and had to purchase a mini HDMI converter from Walmart.
 
-- Borrowed a USB Female to Micro USB Male Adapter from my data science professor.
+- I had to borrow a USB Female to Micro USB Male Adapter from my data science professor.
 
-- Had to go to the hardware store multiple times because I got the wrong alloy for electrical soldering and needed a 3 mm flat-head screwdriver to loosen and tighten power cables.
+- I had to go to the hardware store multiple times because I got the wrong alloy for electrical soldering and needed a 3 mm flat-head screwdriver to loosen and tighten power cables.
 
 - Didn't have jumper wires and couldn't find anywhere in town to purchase them, so they asked for permission to take some from the supply at the college.
 
@@ -118,7 +126,7 @@ The Spotify Developer Application is required to link your Spotify account to th
 ### Generate Spotify Authentication File
 (Note: This was completed on a Windows 11 laptop.)
 
-- Copied Ryan Ward's SpotiPi repository on cmd prompt.
+- Copied Ryan Ward's SpotiPi repository on the cmd prompt.
 ```
 git clone  https://github.com/ryanwa18/spotipi.git
 ```
@@ -126,7 +134,7 @@ git clone  https://github.com/ryanwa18/spotipi.git
 ```
  cd spotipi
 ```
-- Ran the generate token script and entered the prompted Spotify credentials: Client ID, Client Secrect, Redirect URI, Spotify Username. 
+- Ran the generate token script and entered the prompted Spotify credentials: Client ID, Client Secret, Redirect URI, Spotify Username. 
 ```
  bash generate-token.sh
  ```
@@ -172,7 +180,7 @@ setx PATH "%PATH%;C:\Python3.12.3\Scripts"
 
 setx PATH "%PATH%;C:\Program Files\Git\bin"
 ``` 
-I was still recving the same error message:
+I was still receiving the same error message:
 -  Multiple installations of the Bash executable were installed which confused the system.
 -  Since I'm using Git Bash, I need to use the Bash executable from the Git installation directory.
 
@@ -219,15 +227,15 @@ systemctl status ssh
 ```
 - If SSH is running, you should see that it is active:
 
--- insert photo of ssh status --
+-- insert photo of SSH status --
 
-3. Connect to Pi from Computer via SSH:
+3. Connect to Pi from the Computer via SSH:
 
 - On the computer type in the cmd prompt:
 ```
 ssh pi@your_pi_zero_ip
 ```
-- In my case it was:
+- In my case, it was:
 
 ```
 ssh donna@192.168.1.30
@@ -243,23 +251,80 @@ ssh donna@192.168.1.30
 - I had to change my location from school to home because a firewall was blocking my SSH access to the Raspberry Pi.
 
 
+### Copy the Authentication File to Raspberry Pi
+
+1.  scp .cache file over to the Raspberry Pi
+- scp - Stands for "secure copy."
+- It is a command-line utility that allows you to securely copy files and directories between two locations over a network.
+```
+$ scp .cache-<username> pi@spotipy.local:/home/pi
+```
+My case:
+```
+scp .cache donna@spotipy.192.168.1.30:/home/donna/.cache
+```
+
+2. Cloned the SpotiPi repository to the Pi Zero
+```
+git clone https://github.com/ryanwa18/spotipi.git
+```
+
+### Move the Authentication File to the Proper Directory on Raspberry Pi
+Moved the .cache file from its current location to the root directory of the cloned repository.
+
+```
+ mv <path_to_cache_file> <path_to_cloned_repository>
+```
+My case:
+```
+ mv /home/donna/.cache /home/donna/myrepo/.cache
+```
+
+### Run the Installation Script to Complete the Build
+
+1. Installed the SpotiPi software on the Pi Zero.
+```
+ cd spotipi
+ sudo bash setup.sh
+```
+
+2. Entered the values when prompted:
+
+- Spotify Client ID: the token created on the Spotify developer dashboard
+
+- Spotify Client Secret: the secret token created on the Spotify developer dashboard
+
+- Spotify username: the username for your Spotify account
+
+- Spotify Redirect URI: the redirect URI set within the Spotify developer dashboard
+
+- Full path to your Spotify token: the path to where you stored the Spotify authentication file on your Raspberry Pi. 
+
+### Edit Settings on the Web App to Match the Hardware 
+
+- Opened the web browser and navigated to the following link:
+
+```
+http://<raspberrypi_hostname or ip_address>
+```
+
+My case:
+
+```
+http://192.168.1.30
+```
+
+Within the web interface, you can perform the following actions:
+
+- Turn the display on or off.
+- Adjust the brightness of the display.
+- Adjust the size of the display if you are using a 64x64 matrix.
+
+![Screenshot (42)](https://github.com/d-terrell/Spotipi/assets/168385418/31182fbd-1207-4311-8447-e4797539954d)
 
 
 
 
-
-
-
-
-
-
-## Raspberry Pi Zero Hardware Assembly
-
-- Attach the standard HDMI cable from the monitor to the mini HDMI converter, then attach the mini HDMI to the mini HDMI output on the Pi Zero. 
-
-- Attach the standard USB cable from the keyboard to the USB Female to the Micro USB Male Adapter. Now plug the Micro USB into the Micro USB Data Port on the Pi Zero. 
-
-- Attach the 2.5A Power Supply from the wall to the Micro USB 5 V Power input on the Pi Zero.
 
 ## References
 
