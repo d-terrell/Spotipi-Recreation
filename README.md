@@ -2,7 +2,7 @@
 
 # Spotipi Recreation
 
-Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It displays the album cover of the music playing on Spotify onto a 32x32 LED matrix. This project is intended for myself for learning purposes. I selected this project to gain a broad knowledge of software and hardware. Although it has been challenging, it has been a great learning experience.
+Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It displays the album cover of the music playing on Spotify onto a 32x32 LED matrix. 
 ## Hardware
 To begin the project, I started out buying the hardware Ryan Ward had linked in his written tutorial of Spotipi:
 
