@@ -38,7 +38,7 @@ Music is a significant part of my creative process and daily routine, so selecti
 ![IMG_7571](https://github.com/d-terrell/Spotipi/assets/168385418/c3a60790-a5da-4bc6-bcca-ee828fc2c5a3)
 
 ## Hardware Purchased:
-For the foundation of my project, I carefully selected the hardware recommended by Ryan Ward in his detailed tutorial for SpotiPi:
+For the main components, I selected the hardware recommended by Ryan Ward in his detailed tutorial for SpotiPi:
 
 - [32x32 RGB Led Matrix Panel](https://www.adafruit.com/product/1484)
 - [RGB Matrix Bonnet](https://www.adafruit.com/product/3211)
