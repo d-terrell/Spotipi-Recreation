@@ -7,9 +7,7 @@ Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It di
 # Project Journey
  ## Inspiration:
 
-I chose this project because of my strong inclination towards visual learning and hands-on experiences. Despite my limited knowledge of software, hardware, and the Raspberry Pi, I was eager to jump into a project that would contain all three areas while keeping me fully engaged. That's why I chose to create a display that visually represents the album art of the music I'm currently listening to on an LED panel.
-
-Music is a significant part of my creative process and daily routine, so selecting a project that merges visual elements with something as integral as music felt like a natural and exciting choice.
+I chose this project because of my strong inclination towards visual learning and hands-on experiences. Despite my limited knowledge of software, hardware, and the Raspberry Pi, I was eager to jump into a project that would contain all three areas while keeping me fully engaged. Music is a significant part of my creative process and daily routine, so selecting a project that merges visual elements with something as integral as music felt like a natural and exciting choice.
 
 ## Research and Planning:
 
