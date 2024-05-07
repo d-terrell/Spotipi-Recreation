@@ -213,7 +213,10 @@ sudo raspi-config
 ```
 - In the configuration tool, navigate to Interfacing Options and then select SSH. Choose Enable and then select OK.
 
--- insert photos here --
+![IMG_8240](https://github.com/d-terrell/Spotipi/assets/168385418/5751a57e-c3bb-4479-8c68-6c7a1dc7aaed)
+![IMG_8242](https://github.com/d-terrell/Spotipi/assets/168385418/ef339c75-d449-4291-85a4-39b43c647e1f)
+![IMG_8241](https://github.com/d-terrell/Spotipi/assets/168385418/d9dab790-51a8-4683-bb5c-8459298c926b)
+
 
 - Exit the configuration tool and reboot your Raspberry Pi Zero to apply the changes:
 
@@ -227,7 +230,7 @@ systemctl status ssh
 ```
 - If SSH is running, you should see that it is active:
 
--- insert photo of SSH status --
+![IMG_8246](https://github.com/d-terrell/Spotipi/assets/168385418/49b15f34-fff3-429a-b258-bb8effe85309)
 
 3. Connect to Pi from the Computer via SSH:
 
@@ -496,6 +499,8 @@ chmod -R 755 venv
 pip install Flask
 pip install Pillow==9.4.0
 ```
+![IMG_8266](https://github.com/d-terrell/Spotipi/assets/168385418/4f562ac5-69f7-4847-b4b6-8ed8b5241302)
+
 Finally, I ran setup.sh again. Everything seemed to be running smoothly, with no errors, until the terminal stopped at 'collecting pillow ==9.30' and froze. 
 
 The pi was hot to the touch again and I had to unplug and call it a night. 
