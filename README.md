@@ -1,5 +1,7 @@
 
 
+
+
 # Spotipi Recreation
 
 Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It displays the album cover of the music playing on Spotify onto a 32x32 LED matrix. 
@@ -194,7 +196,7 @@ Before copying the authentication file to the Raspberry Pi and running the insta
 
     - Stands for Secure Shell.
     - It's a protocol used for securely connecting to a remote     computer or server over a network connection.
-    - In this case connecting from windows command prompt to a Raspberry Pi Zero over a network.
+    - In this case, connecting from a Windows command prompt to a Raspberry Pi Zero over a network.
 
 
 1. Type the following command on the PI Zero terminal to get the IP address of the network being used to link the Pi and computer:
@@ -257,11 +259,16 @@ ssh donna@192.168.1.30
 ```
 $ scp .cache-<username> pi@spotipy.local:/home/pi
 ```
-My case:
+My case 1st time:
 ```
 scp .cache donna@192.168.1.30:/home/donna/.cache
 ```
+My case 2nd time:
+-r flag with scp to recursively copy the contents of the directory. 
+```
+scp -r /home/donna/.cache donna@192.168.1.30:/home/donna/
 
+```
 2. Cloned the SpotiPi repository to the Pi Zero
 ```
 git clone https://github.com/ryanwa18/spotipi.git
@@ -273,20 +280,22 @@ Moved the .cache file from its current location to the root directory of the clo
 ```
  mv <path_to_cache_file> <path_to_cloned_repository>
 ```
-My case:
+My case both times:
 ```
- mv /home/donna/.cache /home/donna/myrepo/.cache
+ mv .cache spotipi/
 ```
+#### Difficulties:
+- The first time I attempted this .cache was seen as a file but the second time .cache was seen as a directory and I had to add the flaf -r to recursively copy the contents of the directory to the Pi Zero.
 
 ### Run the Installation Script to Complete the Build
 
-1. Installed the SpotiPi software on the Pi Zero.
+1. Install the SpotiPi software on the Pi Zero.
 ```
  cd spotipi
  sudo bash setup.sh
 ```
 
-2. Entered the values when prompted:
+2. Enter the values when prompted:
 
 - Spotify Client ID: the token created on the Spotify developer dashboard
 
@@ -322,9 +331,174 @@ Within the web interface, you can perform the following actions:
 ![Screenshot (42)](https://github.com/d-terrell/Spotipi/assets/168385418/31182fbd-1207-4311-8447-e4797539954d)
 
 
+# Current Issues & Possible Solutions 
 
+- Pi zero turns off when the bonnet is attached 
+  - It could be a software issue, going to try downloading software for the matrix bonnet and the LED panel.
 
+## First attempt:
+I was able to download everything onto the Pi but when it did the reboot process it never turned back on, and I had to start over by reflashing the SD card with a Rasbian OS again. 
 
+    - Overheating / Usage - Most likely because it was hot to the touch and I used it for multiple hours nonstop 
+    - Might need a greater power supply?
+    - SD Card  - Damage or faulty?
+
+## Second Attempt:
+Seemed to run more smoothly & faster the second time when downloading the Rasbian OS. I used the same user and password. I did these commands first before doing anything: 
+```
+sudo apt update - Updates the package lists for upgrades and new package installation.
+
+sudo apt upgrade - Upgrades installed packages to their latest versions.
+
+sudo apt autoremove - Clean up unnecessary packages and cached package files.
+```
+After that I ran into this issue when trying to SSH over to the Pi:
+
+```
+C:\Users\donna>ssh donna@192.168.1.30
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:+HcPVbzcgRUh9wZr/m7XGsYyltEZmGninE0YK1GSe5g.
+Please contact your system administrator.
+Add correct host key in C:\\Users\\donna/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in C:\\Users\\donna/.ssh/known_hosts:3
+Host key for 192.168.1.30 has changed and you have requested strict checking.
+Host key verification failed.
+```
+- The SSH key changed because I reflashed the OS
+- Needed to remove the old key from the 'known_hosts' file (even though it was the same IP address)
+
+I did this by:
+1. Opening the known_hosts file in Notepad.
+2. Search for any lines that contain 192.168.1.30 and delete those lines, which was every line, so I deleted everything.
+3. Saved the known_hosts file and close the text editor.
+
+4. SSH to Raspberry Pi again and was prompted to accept the new SSH key. 
+
+The next issue was that the .cache file was being read as a directory which was an easy fix but I wonder if the change would affect my outcome
+
+The next issue came when I tried to Install the spotipi software on the Pi using bash setup.sh:
+
+```
+donna@raspberrypi:~ $ cd spotipi
+donna@raspberrypi:~/spotipi $  sudo bash setup.sh
+Ensure packages are installed:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+libopenjp2-7 is already the newest version (2.5.0-2).
+libopenjp2-7 set to manually installed.
+python3-dbus is already the newest version (1.3.2-4+b1).
+python3-dbus set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Blacklist soundcard...
+Installing spotipy library:
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+Installing pillow library:
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+Installing flask library:
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+Enter your Spotify Client ID:
+```
+- Good because I was seeing new things like a progress bar and new error messages but bad because I had no idea why they were happening.
+
+- Created a Virtual Environment
+    - recommend by the Error messages and chat gpt
+    - You create a virtual environment and activate it, you will then be able to install packages inside it
+ ```
+python3 -m venv venv -  Creates a virtual environment
+
+source venv/bin/activate - Activates the virtual environment
+
+pip install spotipy pillow flask - Installs the required packages
+
+sudo bash setup.sh - Runs the setup script again
+```
+Kept having issues with Pillow So I did:
+
+```
+source venv/bin/activate
+
+pip install pillow
+```
+
+setup.sh seemed to be working and then again!! Pillow!!
+- legacy-install-failure, meaning there was a problem during the installation of the Pillow package
+
+- My Python version that was installed was 3.11.2
+- I decided to find a pillow version that was compatible with python 3.11.2
+    - I did this by googling and eventually finding a tutorial on youtube that said what version of pillow I needed, which was PIllow 9.4.0
+ ```
+ source venv/bin/activate
+pip install Pillow==9.4.0
+```
+
+Still had the same error  and permission-related errors when using sudo so I recreated the virtual environment, give myself sudo/permissions, and  reinstalled flash and pillow:
+
+```
+deactivate  -  Make sure the virtual environment is deactivated
+rm -rf venv  - Delete the existing virtual environment directory
+python3 -m venv venv  - Recreate the virtual environment
+source venv/bin/activate  - Activate the virtual environment
+
+chmod -R 755 venv
+
+pip install Flask
+pip install Pillow==9.4.0
+```
+Finally, I ran setup.sh again. Everything seemed to be running smoothly, with no errors, until the terminal stopped at 'collecting pillow ==9.30' and froze. 
+
+The pi was hot to the touch again and I had to unplug and call it a night. 
 ## References
 
  - [How to Setup a Spotify Cover Art Display with Raspberry Pi](https://www.ryanwardtech.com/guides/how-to-install-spotify-cover-art-display/)
@@ -342,4 +516,6 @@ Within the web interface, you can perform the following actions:
 - [How to install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 - [Windows 11: How To Enable Virtualization (VT-x) in Bios](https://youtu.be/3ZBwFcaed5w?si=CYzdn89738iW8t1V)
+
+
 
