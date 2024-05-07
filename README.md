@@ -53,6 +53,7 @@ As the project progressed, I realized the need to acquire additional hardware an
 - Attach the 2.5A Power Supply from the wall to the Micro USB 5 V Power input on the Pi Zero.
 
 Raspberry Pi Zero Graphical Datasheet
+
 ![PiZerov2](https://github.com/d-terrell/Spotipi/assets/168385418/66c969a1-7fb0-45e0-a7ba-42513faf2901)
 
 
