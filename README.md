@@ -1,7 +1,3 @@
-
-
-
-
 # Spotipi Recreation
 
 Spotipi is a project based on the Raspberry Pi Zero, created by Ryan Ward. It displays the album cover of the music playing on Spotify onto a 32x32 LED matrix. 
@@ -55,7 +51,11 @@ As the project progressed, I realized the need to acquire additional hardware an
 - Attach the standard USB cable from the keyboard to the USB Female to the Micro USB Male Adapter. Now plug the Micro USB into the Micro USB Data Port on the Pi Zero. 
 
 - Attach the 2.5A Power Supply from the wall to the Micro USB 5 V Power input on the Pi Zero.
-  
+
+Raspberry Pi Zero Graphical Datasheet
+![PiZerov2](https://github.com/d-terrell/Spotipi/assets/168385418/66c969a1-7fb0-45e0-a7ba-42513faf2901)
+
+
 ## Hardware Assembly
 - Soldered GPIO pins 4 and 18 together on the Matrix Bonnet via tinned jumper wire.
 
@@ -69,6 +69,9 @@ As the project progressed, I realized the need to acquire additional hardware an
 - Attached ribbon cable from the first end of Matrix Bonnet onto the LED Panel.
 
 - Connected the power supply adapter to the Matrix Bonnet and wall.
+
+Photo of Bonnet and Matrix After Assembly 
+![IMG_8280](https://github.com/d-terrell/Spotipi/assets/168385418/b0c8fe44-8c1d-4c4a-8d0f-5255b5924abe)
 
 ### Difficulties:
 
