@@ -261,7 +261,7 @@ $ scp .cache-<username> pi@spotipy.local:/home/pi
 ```
 My case:
 ```
-scp .cache donna@spotipy.192.168.1.30:/home/donna/.cache
+scp .cache donna@192.168.1.30:/home/donna/.cache
 ```
 
 2. Cloned the SpotiPi repository to the Pi Zero
